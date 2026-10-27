@@ -1,0 +1,67 @@
+{
+  "dataset": "GSE159094",
+  "source_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159094/suppl/GSE159094_PBMC_Dex_IFN_featureCounts.csv.gz",
+  "source_sha256": "61D404C0EEB531A8EF238A29D3FF4ED05BA5727C5AD06436FC78BB92801A6AF0",
+  "design": "~ donor + condition; all four conditions retained in every fit",
+  "samples": 16,
+  "donors": 4,
+  "residual_degrees_of_freedom": 9,
+  "filter": ">=10 counts in >=3 of the 16 samples, applied once for all contrasts",
+  "inference": "Standard Wald test H0:LFC=0 plus separate threshold Wald test H0:|LFC|<=1; BH adjustment within each contrast/test family. Shrunken LFCs are descriptive posterior estimates; p-values use unshrunken coefficients.",
+  "limitations": [
+    "Four donors still limit population generalization.",
+    "The joint model assumes donor and condition effects are additive on the log scale; no donor-by-treatment interaction is estimated.",
+    "Donor direction agreement uses these same samples and is descriptive, not independent replication.",
+    "More discoveries do not establish greater accuracy; no biomarker ground truth is available."
+  ],
+  "contrasts": {
+    "dex_vs_untreated": {
+      "treated_vs_control": [
+        "Dex",
+        "UT"
+      ],
+      "n_genes_retained": 15285,
+      "n_valid_wald_pvalues": 15285,
+      "residual_degrees_of_freedom": 9,
+      "n_fdr05_and_abs_shrunken_lfc_gt_1": 577,
+      "n_fdr05_threshold_test_abs_lfc_gt_1": 213,
+      "threshold_hits_direction_agrees_all_4_donors": 213,
+      "threshold_hits_direction_agrees_at_least_3_donors": 213,
+      "median_unshrunken_se_ratio_joint_over_pairwise_common_genes": 0.8498114108067354,
+      "unshrunken_lfc_spearman_vs_pairwise_common_genes": 0.9981646425086945,
+      "n_common_genes_with_pairwise": 14806
+    },
+    "dex_ifn_vs_ifn": {
+      "treated_vs_control": [
+        "Dex.IFN",
+        "IFN"
+      ],
+      "n_genes_retained": 15285,
+      "n_valid_wald_pvalues": 15285,
+      "residual_degrees_of_freedom": 9,
+      "n_fdr05_and_abs_shrunken_lfc_gt_1": 642,
+      "n_fdr05_threshold_test_abs_lfc_gt_1": 220,
+      "threshold_hits_direction_agrees_all_4_donors": 219,
+      "threshold_hits_direction_agrees_at_least_3_donors": 220,
+      "median_unshrunken_se_ratio_joint_over_pairwise_common_genes": 0.8601673911643477,
+      "unshrunken_lfc_spearman_vs_pairwise_common_genes": 0.9984389296976274,
+      "n_common_genes_with_pairwise": 14647
+    },
+    "ifn_vs_untreated": {
+      "treated_vs_control": [
+        "IFN",
+        "UT"
+      ],
+      "n_genes_retained": 15285,
+      "n_valid_wald_pvalues": 15285,
+      "residual_degrees_of_freedom": 9,
+      "n_fdr05_and_abs_shrunken_lfc_gt_1": 2007,
+      "n_fdr05_threshold_test_abs_lfc_gt_1": 983,
+      "threshold_hits_direction_agrees_all_4_donors": 982,
+      "threshold_hits_direction_agrees_at_least_3_donors": 983,
+      "median_unshrunken_se_ratio_joint_over_pairwise_common_genes": 0.7503921744675317,
+      "unshrunken_lfc_spearman_vs_pairwise_common_genes": 0.9993726581514524,
+      "n_common_genes_with_pairwise": 14778
+    }
+  }
+}
